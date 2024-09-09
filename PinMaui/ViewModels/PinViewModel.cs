@@ -10,6 +10,7 @@ namespace PinMaui.ViewModels
 {
     public class PinViewModel : BaseViewModel
     {
+        #region Popiedades
         private string text;
         public string Text
         {
@@ -23,19 +24,7 @@ namespace PinMaui.ViewModels
                 LoadItemId(value);
             }
         }
-
-        private void LoadItemId(string value)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                Pins[i] = new Pin { Existe = false };
-            }
-
-            for (int i = 0; i < value.Length; i++)
-            {
-                Pins[i] = new Pin { Existe = true };
-            }
-        }
+        #endregion
 
         public ObservableCollection<Pin> Pins { get; }
         public PinViewModel()
@@ -51,6 +40,19 @@ namespace PinMaui.ViewModels
                 Pins.Add(new Pin { Existe = false });
                 Pins.Add(new Pin { Existe = false });
                 Pins.Add(new Pin { Existe = false });
+            }
+        }
+
+        private void LoadItemId(string value)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Pins[i] = new Pin { Existe = false };
+            }
+
+            for (int i = 0; i < value.Length; i++)
+            {
+                Pins[i] = new Pin { Existe = true };
             }
         }
 

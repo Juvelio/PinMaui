@@ -2,66 +2,59 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PinMaui.Views.PinPage"
-             Title="PinPage">
+             Title="PIN de seguridad">
 
     <VerticalStackLayout Padding="0,15" Spacing="20" VerticalOptions="CenterAndExpand">
 
-        <Grid VerticalOptions="CenterAndExpand" >
 
-            <Entry x:Name="hiddenEntry" MaxLength="4" HorizontalOptions="Center" VerticalOptions="Center"   Opacity="0"
+        <Frame HorizontalOptions="CenterAndExpand" Margin="30,0" HasShadow="True" BorderColor="#fafafa">
+            <StackLayout  HorizontalOptions="CenterAndExpand" Spacing="30">
+                <Label Text="Ingresa PIN de seguridad" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Body"/>
+                <Grid VerticalOptions="CenterAndExpand" >
+
+                    <Entry x:Name="hiddenEntry" MaxLength="4" HorizontalOptions="Center" VerticalOptions="Center"   Opacity="0"
                        Text="{Binding Text}"    Keyboard="Numeric"/>
 
-            <StackLayout HorizontalOptions="CenterAndExpand">
-                <CollectionView x:Name="MiColeccion" ItemsSource="{Binding Pins}">
-                    <CollectionView.ItemsLayout>
-                        <LinearItemsLayout Orientation="Horizontal"  ItemSpacing="15"/>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Ellipse Stroke="{StaticResource MiColor500}"
-                              StrokeThickness="1.5"
-                              WidthRequest="40"
-                              HeightRequest="40"
-                              VerticalOptions="CenterAndExpand"
-                              HorizontalOptions="CenterAndExpand" />
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <CollectionView x:Name="MiColeccion" ItemsSource="{Binding Pins}">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"  ItemSpacing="15"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Ellipse Stroke="{StaticResource MiColor500}"
+                                                  StrokeThickness="1.5"
+                                                  WidthRequest="40"
+                                                  HeightRequest="40"
+                                                  VerticalOptions="CenterAndExpand"
+                                                  HorizontalOptions="CenterAndExpand" />
 
-                                <Ellipse WidthRequest="20" HeightRequest="20" IsVisible="{Binding Existe}"
-                              BackgroundColor="{StaticResource Primary}"                                     
-                              VerticalOptions="CenterAndExpand"
-                              HorizontalOptions="CenterAndExpand" >
-                                    <!--<Ellipse.Triggers>
-                             <DataTrigger TargetType="Ellipse" Binding="{Binding Existe}" Value="True">
-                                 <Setter Property="IsVisible" Value="True"/>
-                             </DataTrigger>
-                             <DataTrigger TargetType="Ellipse" Binding="{Binding Existe}" Value="False">
-                                 <Setter Property="IsVisible" Value="False"/>
-                             </DataTrigger>
-                         </Ellipse.Triggers>-->
-                                </Ellipse>
+                                        <Ellipse WidthRequest="20" HeightRequest="20" IsVisible="{Binding Existe}"
+                                                  BackgroundColor="{StaticResource Primary}"                                     
+                                                  VerticalOptions="CenterAndExpand"
+                                                  HorizontalOptions="CenterAndExpand" />
 
-                                <Label Text="{Binding Existe}" TextColor="Transparent" FontSize="1"
-                            VerticalOptions="CenterAndExpand"
-                            HorizontalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"/>
-                                <!--<Label FontFamily="FaSolid"               
-                        Text="{Binding Icono}"   
-                        TextColor="{StaticResource  MiColor600}"
-                        VerticalOptions="Center"                
-                        FontSize="10"               
-                        HorizontalOptions="Center" />-->
+                                        <Label Text="{Binding Existe}" TextColor="Transparent" FontSize="1"
+                                                VerticalOptions="CenterAndExpand"
+                                                HorizontalOptions="CenterAndExpand"
+                                                HorizontalTextAlignment="Center"/>
 
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer  Tapped="OpenKeyboard"/>
-                                </Grid.GestureRecognizers>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="OpenKeyboard"/>
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Grid>
+                <BoxView BackgroundColor="LightGray" HeightRequest="1"/>
+                <!--<Label Text="Estimado usuario, recuerda el limite maximo de intentos para ingresar su PIN de suguridad son 5, en caso de exederlos ..." HorizontalTextAlignment="Center"></Label>-->
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id ultrices leo. Nullam ut ultricies lorem, id euismod enim. Integer pulvinar fermentum mi. Orci varius." 
+                       HorizontalTextAlignment="Center"></Label>
             </StackLayout>
-        </Grid>
-
-        <Button x:Name="btnOk" Text="Ok" Clicked="btnOk_Clicked" WidthRequest="150"/>
-
+        </Frame>
+        <Button x:Name="btnOk" Text="Ok" Clicked="btnOk_Clicked" WidthRequest="150" FontAttributes="Bold"/>
     </VerticalStackLayout>
 </ContentPage>

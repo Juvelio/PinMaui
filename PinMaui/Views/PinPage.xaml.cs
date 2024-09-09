@@ -3,11 +3,7 @@ using PinMaui.ViewModels;
 namespace PinMaui.Views;
 
 public partial class PinPage : ContentPage
-{
-    //public PinPage()
-    //{
-    //	InitializeComponent();
-    //}
+{    
     private PinViewModel _viewModel;
 
     public PinPage()
@@ -19,12 +15,7 @@ public partial class PinPage : ContentPage
     {
         hiddenEntry.Focus();
         _viewModel.Focus();
-    }
-
-    //private void OnButtonClicked(object sender, EventArgs e)
-    //{
-    //    OpenKeyboard();
-    //}
+    }  
 
     protected override void OnAppearing()
     {
@@ -36,7 +27,6 @@ public partial class PinPage : ContentPage
     {
         Shell.Current.DisplayAlert(hiddenEntry.Text, null, "Ok");
     }
-
 
     //private void hiddenEntry_TextChanged(object sender, TextChangedEventArgs e)
     //{
