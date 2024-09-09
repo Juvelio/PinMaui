@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PinMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:PinMaui"
+    xmlns:Views="clr-namespace:PinMaui.Views"    
+    Shell.FlyoutBehavior="Flyout"
+    Title="PinMaui">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+
+    <ShellContent
+    Title="PIN"
+    ContentTemplate="{DataTemplate Views:PinPage}"
+    Route="PinPage" />
+
+</Shell>

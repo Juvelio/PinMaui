@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PinMaui.Views.PinPage"
+             Title="PinPage">
+
+    <VerticalStackLayout Padding="0,15" Spacing="20">
+        <!--<Label 
+            FontFamily="MaterialIcons"
+            Text="{x:Static helpers:IconFont.Github}"
+            VerticalOptions="Center" 
+            FontSize="50"
+            HorizontalOptions="Center" />
+
+
+        <Label 
+         FontFamily="FaSolid"
+         Text="{x:Static helpers:FaSolid.Fingerprint}"
+         VerticalOptions="Center" 
+         FontSize="50"
+         HorizontalOptions="Center" />
+
+        <Label 
+     FontFamily="FaBrands"
+     Text="{x:Static helpers:FaBrands.Tiktok}"
+     VerticalOptions="Center" 
+     FontSize="50"
+     HorizontalOptions="Center" />
+
+        <Label FontFamily="FaBrands"               
+               Text="{x:Static helpers:FaBrands.Tiktok}"
+            VerticalOptions="Center" 
+            FontSize="50"
+            HorizontalOptions="Center" />-->
+
+        <Entry x:Name="hiddenEntry" MaxLength="4"  
+                              Text="{Binding Text}"
+                              Keyboard="Numeric"/>
+
+
+        <StackLayout HorizontalOptions="CenterAndExpand">
+            <CollectionView x:Name="MiColeccion" ItemsSource="{Binding Pins}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"  ItemSpacing="15"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Ellipse Stroke="{StaticResource MiColor500}"
+                                     StrokeThickness="1.5"
+                                     WidthRequest="40"
+                                     HeightRequest="40"
+                                     VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="CenterAndExpand" />
+
+                            <Ellipse WidthRequest="20" HeightRequest="20" IsVisible="{Binding Existe}"
+                                     BackgroundColor="{StaticResource Primary}"                                     
+                                     VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="CenterAndExpand" >
+                                <!--<Ellipse.Triggers>
+                                    <DataTrigger TargetType="Ellipse" Binding="{Binding Existe}" Value="True">
+                                        <Setter Property="IsVisible" Value="True"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Ellipse" Binding="{Binding Existe}" Value="False">
+                                        <Setter Property="IsVisible" Value="False"/>
+                                    </DataTrigger>
+                                </Ellipse.Triggers>-->
+                            </Ellipse>
+
+                            <Label Text="{Binding Existe}" TextColor="Transparent" FontSize="1"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HorizontalTextAlignment="Center"/>
+                            <!--<Label FontFamily="FaSolid"               
+                               Text="{Binding Icono}"   
+                               TextColor="{StaticResource  MiColor600}"
+                               VerticalOptions="Center"                
+                               FontSize="10"               
+                               HorizontalOptions="Center" />-->
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer  Tapped="OpenKeyboard"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+
+        <Grid Margin="20">
+
+            <!--<HorizontalStackLayout Spacing="20" HorizontalOptions="CenterAndExpand">
+                <Ellipse Stroke="{StaticResource MiColor500}"
+                     StrokeThickness="1.5"
+                     WidthRequest="50"
+                     HeightRequest="50"
+                     HorizontalOptions="Start" />
+                <Ellipse Stroke="{StaticResource MiColor500}"
+                          StrokeThickness="1.5"
+                          WidthRequest="50"
+                          HeightRequest="50"
+                          HorizontalOptions="Start" />
+                <Ellipse Stroke="{StaticResource MiColor500}"
+                       StrokeThickness="1.5"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       HorizontalOptions="Start" />
+                <Ellipse Stroke="{StaticResource MiColor500}"
+                       StrokeThickness="1.5"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       HorizontalOptions="Start" />
+            </HorizontalStackLayout>-->
+
+
+        </Grid>
+
+        <!--<Label FontFamily="FaRegular"               
+                   Text="&#xf111; &#xf111; &#xf111; &#xf111;"   
+                   TextColor="{StaticResource  MiColor600}"
+                   VerticalOptions="Center"                
+                   FontSize="50"               
+                   HorizontalOptions="Center" />-->
+        <!--<Label FontFamily="FaRegular"               
+               Text="{x:Static helpers:FaRegular.dotCircle}"   
+               TextColor="{StaticResource  MiColor700}"
+               VerticalOptions="Center"                
+               FontSize="50"               
+               HorizontalOptions="Center" />-->
+
+    </VerticalStackLayout>
+</ContentPage>
