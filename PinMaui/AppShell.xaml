@@ -8,10 +8,10 @@
     Shell.FlyoutBehavior="Flyout"
     Title="PinMaui">
 
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
 
 
     <ShellContent

@@ -17,7 +17,7 @@ public partial class PinPage : ContentPage
     }
     private void OpenKeyboard(object sender, EventArgs e)
     {
-        //hiddenEntry.Focus();
+        hiddenEntry.Focus();
         _viewModel.Focus();
     }
 
@@ -30,6 +30,11 @@ public partial class PinPage : ContentPage
     {
         base.OnAppearing();
         _viewModel.OnAppearing();
+    }
+
+    private void btnOk_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.DisplayAlert(hiddenEntry.Text, null, "Ok");
     }
 
 

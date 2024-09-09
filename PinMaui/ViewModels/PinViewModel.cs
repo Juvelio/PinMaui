@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,18 +45,21 @@ namespace PinMaui.ViewModels
 
         public void OnAppearing()
         {
-            Pins.Add(new Pin { Existe = false });
-            Pins.Add(new Pin { Existe = false });
-            Pins.Add(new Pin { Existe = false });
-            Pins.Add(new Pin { Existe = false });
+            if (Pins.Count <= 0)
+            {
+                Pins.Add(new Pin { Existe = false });
+                Pins.Add(new Pin { Existe = false });
+                Pins.Add(new Pin { Existe = false });
+                Pins.Add(new Pin { Existe = false });
+            }
         }
 
-        internal void Focus()
+        public void Focus()
         {
-            for (int i = 0; i < 4; i++)
-            {
-                Pins[i] = new Pin { Existe = false };
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    Pins[i] = new Pin { Existe = false };
+            //}
         }
     }
 
